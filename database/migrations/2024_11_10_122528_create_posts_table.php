@@ -19,8 +19,10 @@ return new class extends Migration
             $table->mediumText('body_content');
             $table->enum('status', ['DRAFT', 'PUBLISH']);
             $table->enum('category', ['NEWS', 'JOBS', 'AGENDA']);
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

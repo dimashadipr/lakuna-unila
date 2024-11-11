@@ -80,6 +80,8 @@ Route::middleware('auth')->group(function () {
         });
     });
 
+    Route::resource('/post', PostController::class);
+
     Route::middleware('isAlumni')->group(function () {
         Route::prefix('/alumni')->group(function () {
             Route::get('/', [AlumniController::class, 'index'])->name('alumni');

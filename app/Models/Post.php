@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,32 +12,27 @@ use PhpOffice\PhpSpreadsheet\Calculation\TextData\Search;
 class Post extends Model
 {
     use HasFactory;
-
-    protected $with = ['authhor'];
+    use Sluggable;
 
     protected $fillable = [
         'title',
         'cover',
-        'slug',
         'body_content',
         'status',
-        'category',
         'user_id',
+        'category'
     ];
 
-    public function author(): BelongsTo {
-        return $this->belongsTo(User::class);
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 
-    public function scopeFilter(Builder $query, array $filters): void {
-        $query->when(
-            $filters['search'] ?? false,
-            fn ($query, $search) => $query->where('title', 'like', '%' . $search . '%')
-        );
-        
-        $query->when(
-            $filters['category'] ?? false,
-            fn ($query, $category) => $query->where('category', 'like', '%' . $category . '%')
-        );
+    public function author(): BelongsTo {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
