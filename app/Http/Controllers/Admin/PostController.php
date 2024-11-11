@@ -13,7 +13,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.admin.post.index', [
+            'title' => 'Postingan ' . request('category'),
+            'posts' => Post::filter(request(['search', 'category']))->orderBy('created_at')->get(),
+        ]);
     }
 
     /**

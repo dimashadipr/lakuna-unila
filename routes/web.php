@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MajorController;
 use App\Http\Controllers\Admin\OptionInputController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\UserController;
@@ -69,6 +70,13 @@ Route::middleware('auth')->group(function () {
 
             // Profile
             Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile');
+        });
+    });
+
+    Route::middleware('isAdminOrAuthor')->group(function () {
+        Route::prefix('/dashboard')->group(function () {
+            Route::get('/posts', [PostController::class, 'index'])->name('admin.posts');
+            Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('admin.posts.detail');
         });
     });
 
