@@ -4,8 +4,8 @@
             <div class="flex flex-row gap-1 items-center py-3 md:py-2">
                 <a data-aos="fade-right" href="/" class="flex items-center" aria-label="Go to home">
                     <img class="h-12 sm:h-14 transition-all ease-out duration-1000"
-                        src="{{ asset('assets/logo/logo.png') }}" alt="Prestasi Prima">
-                    <span class="hidden md:block text-xl font-bold ml-2">Sekolah Prestasi Prima</span>
+                        src="{{ asset('assets/logo/logo.png') }}" alt="Lakuna Unila">
+                    <span class="hidden md:block text-xl font-bold ml-2 text-blue-500">Lakuna Unila</span>
                 </a>
             </div>
             <div class="flex items-center gap-3 ml-6">
@@ -13,33 +13,30 @@
                     class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6 lg:md:-x-8 navbar-nav">
                     <li class="group nav-item">
                         <a href="#beranda"
-                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold nav-link ">Beranda</a>
+                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold ">Beranda</a>
                         <div
-                            class="h-0.5 bg-primary scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                            class="h-0.5 bg-blue-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
                         </div>
                     </li>
                     <li class="group nav-item">
                         <a href="#info"
-                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold nav-link ">Info</a>
+                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold ">Info</a>
                         <div
-                            class="h-0.5 bg-primary scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                            class="h-0.5 bg-blue-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
                         </div>
                     </li>
                     <li class="group nav-item">
                         <a href="#faq"
-                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold nav-link ">Faq</a>
+                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold ">Faq</a>
                         <div
-                            class="h-0.5 bg-primary scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                            class="h-0.5 bg-blue-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
                         </div>
                     </li>
                     <li class="group nav-item">
                         <a href="#loker"
-                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold nav-link ">
-                            Info
-                            Loker
-                        </a>
+                            class="hidden md:inline-flex items-center gap-1 px-3 py-2 rounded-lg font-bold ">Info Loker</a>
                         <div
-                            class="h-0.5 bg-primary scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                            class="h-0.5 bg-blue-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
                         </div>
                     </li>
                 </ul>
@@ -84,16 +81,6 @@
     </nav>
 @endif
 
-
-<!-- Main modal -->
-{{-- <div id="crypto-modal" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative w-full h-full max-w-md md:h-auto">
-        <!-- Modal content -->
-
-    </div>
-</div> --}}
-<!-- Main modal -->
 <div id="login-modal" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full transition-all duration-1000">
     <div class="relative w-full h-full max-w-md md:h-auto">
@@ -102,7 +89,7 @@
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow-xl transition-all duration-1000">
             <button type="button"
-                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-primary-200 hover:text-primary-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-blue-200 hover:text-blue-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
                 data-modal-hide="login-modal">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
@@ -123,42 +110,22 @@
             </div>
             <!-- Modal body -->
             <div class="p-6">
-                <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Pilih akun yang ingin anda masukki, agar
+                <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Login ke akun anda, agar
                     dapat terhubung dengan tracer study.</p>
-                <ul class="my-4 space-y-3 nav-link">
+                <ul class="my-4 space-y-3">
                     <li>
                         <a href="{{ route('login') }}"
-                            class="flex items-center p-3 text-base font-bold text-primary rounded-lg bg-primary-50 hover:bg-primary-100 group hover:shadow">
+                            class="flex items-center p-3 text-base font-bold text-black rounded-lg bg-blue-50 hover:bg-blue-100 group hover:shadow">
                             <i class='bx bxs-graduation'></i>
                             <span class="flex-1 ml-3 whitespace-nowrap">Sebagai
                                 Alumni</span>
                             <span
                                 class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded">
-                                Prestasi Prima</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('dudi.login') }}"
-                            class="flex items-center p-3 text-base font-bold text-primary rounded-lg bg-primary-50 hover:bg-primary-100 group hover:shadow ">
-                            <i class='bx bxs-buildings'></i>
-                            <span class="flex-1 ml-3 whitespace-nowrap">Sebagai Dudi</span>
-                            <span
-                                class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded">Pihak
-                                Perusahaan</span>
+                                Alumni Univeristas Unila</span>
                         </a>
                     </li>
                 </ul>
                 <div>
-                    {{-- <a href="#"
-                        class="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400">
-                        <svg aria-hidden="true" class="w-3 h-3 mr-2" aria-hidden="true" focusable="false"
-                            data-prefix="far" data-icon="question-circle" role="img"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path fill="currentColor"
-                                d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z">
-                            </path>
-                        </svg>
-                        Why do I need to connect with my wallet?</a> --}}
                 </div>
             </div>
         </div>

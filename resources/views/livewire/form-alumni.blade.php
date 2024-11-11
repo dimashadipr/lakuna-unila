@@ -31,7 +31,7 @@
                 <div class="stepwizard-step">
                     <button type="button" wire:click="currentStepChanged(1)"
                         class="btn {{ $currentStep >= 1 || $currentStep == 0 ? 'btn-primary' : 'btn-disable' }} rounded-full">1</button>
-                    <p class="mt-2 {{ $currentStep >= 1 || $currentStep == 0 ? 'text-primary' : 'text-gray-600' }}">
+                    <p class="mt-2 {{ $currentStep >= 1 || $currentStep == 0 ? 'text-blue-500' : 'text-gray-600' }}">
                         Data
                         Umum</p>
                 </div>
@@ -39,33 +39,31 @@
                     <button type="button" wire:click="currentStepChanged(2)"
                         class="btn {{ $currentStep >= 2 || $currentStep == 0 ? 'btn-primary' : 'btn-disable cursor-default' }} rounded-full"
                         {{ $currentStep >= 2 || $currentStep == 0 ? '' : 'disabled' }}>2</button>
-                    <p class="mt-2 {{ $currentStep >= 2 || $currentStep == 0 ? 'text-primary' : 'text-gray-600' }}">
+                    <p class="mt-2 {{ $currentStep >= 2 || $currentStep == 0 ? 'text-blue-500' : 'text-gray-600' }}">
                         Pertanyaan Survey</p>
                 </div>
                 <div class="stepwizard-step">
                     <button type="button"
                         class="btn {{ $currentStep == 3 || $currentStep == 0 ? 'btn-primary' : 'btn-disable' }} rounded-full cursor-default"
                         {{ $currentStep >= 3 || $currentStep == 0 ? '' : 'disabled' }}>3</button>
-                    <p class="mt-2 {{ $currentStep == 3 || $currentStep == 0 ? 'text-primary' : 'text-gray-600' }}">
+                    <p class="mt-2 {{ $currentStep == 3 || $currentStep == 0 ? 'text-blue-500' : 'text-gray-600' }}">
                         Feed
                         Back</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="border-solid border-t-4 border-primary rounded-xl shadow-xl card">
+    <div class="border-solid border-t-4 border-blue-500 rounded-xl shadow-xl card">
         <div class="card-body px-10">
             @if ($isFinished && $currentStep == 0)
                 <div class="bg-green-100 rounded p-5 border border-solid border-green-200 mb-10 mt-5">
-                    <h1 class="text-xs sm:text-lg text-green-700">Selamat Anda telah menyelesaikan Tracer Study, kami
-                        harap kalian
-                        sehat
-                        selalu dan
-                        tidak menjadi
-                        beban orang tua!</h1>
+                    <h1 class="text-xs sm:text-lg text-green-700">Selamat Anda telah menyelesaikan Tracer Study, Terima kasih sudah meluangkan waktu nya untuk mengisi form tadi. Sehat Selalu!</h1>
                 </div>
-                <div class="flex justify-center mb-10">
-                    <img class="w-1/2" src="{{ asset('assets/img/illustrations/Enthusiastic-bro.png') }}">
+                <div class="flex justify-center mb-2">
+                    <img class="w-1/2" src="{{ asset('assets/img/illustrations/Enthusiastic-pana.svg') }}">
+                </div>
+                <div>
+                    <a href="/" class="flex justify-center mb-5 text-xs sm:text-lg text-green-700">Kembali ke Homepage</a>
                 </div>
             @endif
             @if ($currentStep == 1)
@@ -101,7 +99,7 @@
                         <label class="label">
                             <span class="label-text">Jurusan</span>
                         </label>
-                        <select class="form-select @error('major') is-invalid @enderror" wire:model="major">
+                        <select class="form-select focus:border-blue-500 @error('major') is-invalid @enderror" wire:model="major">
                             <option disabled selected value="">Pilih Jurusan</option>
                             @foreach ($majors as $major)
                                 <option value="{{ $major->id }}">{{ $major->name }}</option>
@@ -152,7 +150,7 @@
                     </div>
                     <div class="flex mt-10 justify-end">
                         <button type="submit" class="group btn btn-active btn-primary text-white w-full xs:w-auto">
-                            <span class="sm:inline-block sm:mr-1 align-middle">Lanjut</span>
+                            <span class="sm:inline-block sm:mr-1 align-middle">Selanjutnya</span>
                             <i class="bx bx-chevron-right bx-sm me-sm-n2 group-hover:animate-pulse"></i>
                         </button>
                     </div>
@@ -163,8 +161,6 @@
                     @foreach ($questions as $key => $question)
                         @if ($question->category_id == 4)
                             @php
-                                // $answer = $answers->where('question_id', $question->id)->first();
-                                // $fill = $answer->fill ?? '';
                                 $fill = $question->answers[$key]->fill ?? '';
                             @endphp
                             @includeWhen($question->typeInput->name == 'text', 'partials.field.text', [
@@ -204,7 +200,7 @@
                             <span class="sm:inline-block sm:mr-1 align-middle">Kembali</span>
                         </div>
                         <button type="submit" class="group btn btn-active btn-primary text-white w-full xs:w-auto">
-                            <span class="sm:inline-block sm:mr-1 align-middle">Dikit Lagi</span>
+                            <span class="sm:inline-block sm:mr-1 align-middle">Selanjutnya</span>
                             <i class="bx bx-chevron-right bx-sm me-sm-n2 group-hover:animate-pulse"></i>
                         </button>
                     </div>
@@ -252,7 +248,7 @@
                             <span class="sm:inline-block sm:mr-1 align-middle">Kembali</span>
                         </div>
                         <button type="submit" class="group btn btn-active btn-primary text-white w-full xs:w-auto">
-                            <span class="sm:inline-block sm:mr-1 align-middle">Yak Nice!</span>
+                            <span class="sm:inline-block sm:mr-1 align-middle">Submit</span>
                             <i class="bx bx-chevron-right bx-sm me-sm-n2 group-hover:animate-pulse"></i>
                         </button>
                     </div>
@@ -260,9 +256,9 @@
             @endif
         </div>
     </div>
-    <div class="row mt-12 justify-center xs:justify-end flex-col xs:flex-row-reverse px-14 gap-5">
+    <div class="row mt-12 justify-center xs:justify-end flex-col xs:flex-row-reverse px-4 gap-5">
         @if ($currentStep == 0)
-            <button type="button" class="btn btn-warning md:ml-10 w-full xs:w-auto"
+            <button type="button" class="btn btn-warning w-full xs:w-auto"
                 wire:click="currentStepChanged(1)">
                 <span>Update Data Lagi</span>
                 <i class='ml-1 bx bx-refresh text-xl'></i>

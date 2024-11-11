@@ -11,7 +11,7 @@ module.exports = {
             colors: {
                 primary: {
                     DEFAULT: '#ff8243',
-                    btn: '#ff6a00',
+                    btn: '#0062ff',
                     50: '#ffe1d2',
                     100: '#ffc7b0',
                     200: '#ffa88a',
@@ -42,7 +42,7 @@ module.exports = {
                     400: '#ff703b',
                     500: '#ff5920',
                     600: '#f4501d',
-                    700: '#c1431c',
+                    700: '#0062ff',
                     800: '#91381a',
                     900: '#6d2f17',
                 },
