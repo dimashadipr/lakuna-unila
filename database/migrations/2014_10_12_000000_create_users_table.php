@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nik')->unique()->nullable();
             $table->string('grade_at')->nullable();
             $table->foreignId('type_school_id')->nullable();
-            $table->enum('role', ['ALUMNI', 'ADMIN']);
+            $table->enum('role', ['ALUMNI', 'ADMIN', 'AUTHOR']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

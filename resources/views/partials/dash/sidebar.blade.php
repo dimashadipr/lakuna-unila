@@ -29,6 +29,32 @@
                     <div data-i18n="Manajemen Jurusan">Manajemen Jurusan</div>
                 </a>
             </li>
+            <li class="menu-item {{ is_route('posts', 'active') }}">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bxs-book-content"></i>
+                    <div>Postingan</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ is_route('posts.news', 'active') }}">
+                        <a href="{{ route('admin.posts') }}?category=news" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-news"></i>
+                            <div>Berita</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ is_route('posts.jobs', 'active') }}">
+                        <a href="layouts-without-menu.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-lock-alt"></i>
+                            <div>Lowongan Kerja</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ is_route('posts.agendas', 'active') }}">
+                        <a href="layouts-without-menu.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <div>Agenda</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             {{-- <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-user"></i>

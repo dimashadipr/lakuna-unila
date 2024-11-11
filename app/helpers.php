@@ -20,6 +20,13 @@ if (!function_exists('is_admin')) {
     }
 }
 
+if (!function_exists('is_admin_or_author')) {
+    function is_admin_or_author()
+    {
+        return auth()->user()->role == 'ADMIN' || auth()->user()->role == 'AUTHOR';
+    }
+}
+
 
 if (!function_exists('is_alumni')) {
     function is_alumni()
