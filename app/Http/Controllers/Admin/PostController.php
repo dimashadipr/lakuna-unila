@@ -13,10 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.post.index', [
-            'title' => 'Postingan ' . request('category'),
-            'posts' => Post::filter(request(['search', 'category']))->orderBy('created_at')->get(),
-        ]);
+        $posts = Post::orderBy('created_at', 'DESC')->get();
+        return view('pages.admin.post.index', compact('posts'));
     }
 
     /**
@@ -24,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.post.create');
     }
 
     /**
@@ -32,7 +30,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cover'             => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'category'          => 'required',
+            'title'             => 'required',
+            'body_content'      => 'required'
+        ]);
+
+        $cover = $request->file('cover');
+        $cover->storeAs('public/img', $cover->hashName());
+
+
+        Post::create([
+            'cover'             => $cover->hashName(),
+            'category'          => $request->category,
+            'title'             => $request->title,
+            'user_id'           => 1,
+            'body_content'      => $request->body_content
+        ]);
+        
+    return redirect()->route('post.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**

@@ -34,6 +34,7 @@
         class="template-customizer-theme-css">
     <link rel="stylesheet"
         href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/css/demo.css" />
+        <script src="https://kit.fontawesome.com/85089f5b8d.js" crossorigin="anonymous"></script>
 
     <!-- Vendors CSS -->
     <link rel="stylesheet"
