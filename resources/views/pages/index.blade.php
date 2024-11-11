@@ -18,12 +18,13 @@
             <!-- Content -->
             <div class="flex flex-1 flex-col items-center lg:items-start" data-aos="fade-down">
                 <h2
-                    class="text-secondary font-bold tracking-tighter leading-tight whitespace-nowrap text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
+                    class="text-secondary font-bold tracking-tighter leading-tight whitespace-nowrap text-3xl md:text-4 lg:text-5xl lg:text-left mb-6">
                     Tracer Study <br>
-                    <span class="text-primary">Prestasi Prima</span>
+                    <span class="text-blue-500">Lakuna Unila</span>
                 </h2>
-                <p class="text-secondary text-lg text-center lg:text-left mb-6">
-                    Tracer study, karena "where are they now?" bukan hanya pertanyaan untuk mantan pacar!
+                <p class="text-secondary text-lg text-justify mb-8">
+                    Selamat datang di Website Tracer Study, Lakuna Unila. 
+                    Website ini diperuntukkan untuk mengelola data hasil tracer study yang dilaksanakan oleh Fakultas Kedokteran Universitas Unila.
                 </p>
                 <div class="flex justify-center flex-wrap gap-6">
                     @auth
@@ -32,17 +33,9 @@
                                 Isi Data Alumni
                             </a>
                         @endif
-                        @if (auth()->user()->role == 'DUDI')
-                            <a href="{{ route('dudi') }}" class="btn btn-outline-secondary hover:shadow-sm w-full xs:w-auto">
-                                Masuk Sebagai Dudi
-                            </a>
-                        @endif
                     @else
                         <a href="{{ route('login') }}" class="btn btn-primary hover:shadow-sm w-full xs:w-auto">
                             Isi Data Alumni
-                        </a>
-                        <a href="{{ route('dudi.login') }}" class="btn btn-outline-secondary hover:shadow-sm w-full xs:w-auto">
-                            Masuk Sebagai Dudi
                         </a>
                     @endauth
 
@@ -52,7 +45,7 @@
             <!-- Image -->
             <div class="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0 z-10">
                 <img data-aos="fade-left" class="w-5/6 lg:w-screen sm:w-3/6"
-                    src="{{ asset('assets/img/illustrations/Mobile testing-pana.png') }}" alt="Hero Section Tracer Study">
+                    src="{{ asset('assets/img/illustrations/Mobile-testing-pana.png') }}" alt="Hero Section Tracer Study">
             </div>
         </div>
     </section>
@@ -62,21 +55,20 @@
                 <!-- Image -->
                 <div class="flex justify-center">
                     <img class="w-3/4 md:w-4/5 lg:w-full rounded-md" data-aos="fade-right"
-                        src="{{ asset('assets/img/illustrations/Kids Studying from Home-bro.png') }}" alt="Menu Info">
+                        src="{{ asset('assets/img/illustrations/internship-bro.png') }}" alt="Menu Info">
                 </div>
 
                 <!-- Content -->
                 <div class="flex flex-col justify-center" data-aos="fade-down">
                     <h2
-                        class="text-primary font-bold whitespace-pre-line text-3xl md:text-4 lg:text-5xl text-center md:text-left mb-6">
+                        class="text-blue-500 font-bold whitespace-pre-line text-3xl md:text-4 lg:text-5xl text-center md:text-left mb-6">
                         Informasi Mengenai Tracer Study
                     </h2>
-                    <p class="text-secondary text-lg text-justify md:text-left mb-6">
-                        Tracer Study atau yang sering disebut survei alumni adalah studi mengenai lulusan lembaga
-                        penyelenggara pendidikan. Hasil dari Tracer Study berupa infomasi terkait lulusan yang dapat
-                        digunakan sebagai bahan evaluasi dan acuan untuk menilai mutu pendidikan dari suatu lembaga
-                        pendidikan. Kedepannya, informasi ini juga dapat digunakan untuk membuat keputusan berarti terkait
-                        desain studi dan solusi praktis berdasarkan hasil Tracer Study
+                    <p class="text-secondary text-lg text-justify mb-6">
+                        Tracer study adalah metode penelitian yang digunakan untuk melacak jejak atau perkembangan individu
+                        setelah mereka menyelesaikan suatu program pendidikan atau pelatihan. Tujuan utama dari tracer study 
+                        adalah untuk mengevaluasi dampak jangka panjang dari program tersebut, seperti tingkat keberhasilan dalam 
+                        memperoleh pekerjaan, relevansi kurikulum dengan kebutuhan industri, serta sejauh mana lulusan berhasil beradaptasi di dunia kerja.
                     </p>
                 </div>
             </div>
@@ -85,7 +77,7 @@
     <section class="bg-white py-16 lg:pt-24 pb-60" id="faq">
         <div class="container  mx-auto max-w-7xl px-5">
             <h2
-                class="text-secondary font-bold whitespace-pre-line text-3xl md:text-4 lg:text-5xl text-center md:text-left mb-6">
+                class="text-blue-500 font-bold whitespace-pre-line text-3xl md:text-4 lg:text-5xl text-center md:text-left mb-6">
                 FAQ Tracer Study Prestasi Prima</h2>
             <div class="grid grid-cols-1 gap-1 items-center mb-6">
                 <div class="accordion border rounded">
@@ -162,7 +154,7 @@
     <section class="bg-gray-100 py-16 lg:py-24" id="loker">
         <div class="container mx-auto max-w-7xl">
             <h2
-                class="text-primary font-bold whitespace-pre-line text-3xl md:text-4 lg:text-5xl text-center md:text-left mb-6">
+                class="text-blue-500 font-bold whitespace-pre-line text-3xl md:text-4 lg:text-5xl text-center md:text-left mb-6">
                 Informasi Lowongan Kerja!
             </h2>
             {{-- <div class="embedsocial-hashtag" data-ref="c94591410f16824ead4670502507dba9be527bb2"> --}}

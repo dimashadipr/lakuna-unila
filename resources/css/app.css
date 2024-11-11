@@ -62,21 +62,21 @@
     [multiple],
     textarea:focus,
     select:focus {
-        @apply border-primary ring-0 outline-none;
+        @apply border-blue-500 ring-0 outline-none;
     }
 
     [type="checkbox"]:checked,
     [type="radio"]:checked {
-        @apply border-primary ring-0 outline-1 outline-offset-2 ring-offset-primary-200 bg-primary-300;
+        @apply border-blue-500 ring-0 outline-1 outline-offset-2 ring-blue-200 bg-blue-300;
     }
     [type="checkbox"]:active,
     [type="radio"]:active {
-        @apply border-primary ring-0 outline-1 outline-offset-2 ring-offset-primary-200 bg-primary-300 ring-primary-btn;
+        @apply border-blue-500 ring-0 outline-1 outline-offset-2 ring-offset-blue-200 bg-blue-300 ring-primary-btn;
     }
 
     [type="checkbox"]:focus,
     [type="radio"]:focus {
-        @apply border-primary ring-0 outline-1 outline-offset-2 ring-offset-primary-200 bg-primary-300 ring-primary-btn;
+        @apply border-blue-500 ring-0 outline-1 outline-offset-2 ring-offset-blue-200 bg-blue-300 ring-primary-btn;
     }
     [type="checkbox"],
     [type="radio"] {
@@ -99,7 +99,7 @@
         @apply rounded;
     }
     .form-checkbox:focus {
-        @apply border-primary ring-0 outline-none;
+        @apply border-blue-500 ring-0 outline-none;
     }
     .form-control:disabled {
         @apply bg-gray-100;
@@ -110,7 +110,7 @@
     } */
 
     .form-select:focus {
-        @apply border-primary ring-0 outline-none;
+        @apply border-blue-500 ring-0 outline-none;
     }
 
     .form-select {

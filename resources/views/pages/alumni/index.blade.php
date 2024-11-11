@@ -1,4 +1,4 @@
-@extends('layouts.main', ['bgBody' => 'bg-primary-50', 'isNavbar' => false, 'isFooter' => false])
+@extends('layouts.main', ['bgBody' => 'bg-blue-50', 'isNavbar' => false, 'isFooter' => false])
 
 
 @section('content')
