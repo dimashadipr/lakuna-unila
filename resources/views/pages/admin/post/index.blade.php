@@ -34,11 +34,11 @@
         <tbody>
             @foreach ( $posts as $post )
             <tr>
-                <td><img src="/storage/img/{{ $post->cover }}" alt="Thumbnail Artikel" width="50"></td>
+                <td><img src="{{ asset('storage/img/posts/' . $post->cover) }}" alt="Thumbnail Artikel" class="img-thumbnail" style="max-width: 150px"></td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->author->name }}</td>
                 <td>{{ $post->category }}</td>
-                <td><?php echo htmlspecialchars_decode(stripslashes(Str::limit($post['body_content'], 100)));  ?></td>
+                <td>{!! htmlspecialchars_decode(stripslashes(Str::limit($post['body_content'], 100))) !!}</td>
                 <td>
                     
                     <form action="{{ route('post.destroy', $post) }}" method="POST">
