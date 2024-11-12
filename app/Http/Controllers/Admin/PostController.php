@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts  = Post::filter(request(['search', 'category']))->orderBy('created_at', 'DESC')->get();
-        $title  = request('category');
+        $title  = request('category') == 'news' ? 'Berita' : (request('category') == 'agenda' ? 'Agenda' : 'Lowongan Kerja');
 
         return view('pages.admin.post.index', compact('posts', 'title'));
     }
@@ -39,7 +39,7 @@ class PostController extends Controller
             'cover'             => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'category'          => 'required',
             'title'             => 'required',
-            'body_content'      => 'required'
+            'body_content'      => 'required',
         ]);
 
         $cover = $request->file('cover');
@@ -54,7 +54,7 @@ class PostController extends Controller
             'body_content'      => $request->body_content
         ]);
         
-    return redirect()->route('post.index', ['category' => $request->category])->with(['success' => 'Data Berhasil Disimpan!']);
+    return redirect()->route('posts.index', ['category' => $request->category])->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -122,7 +122,7 @@ class PostController extends Controller
         }
 
         //redirect to index
-        return redirect()->route('post.index', ['category' => $request->category])->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('posts.index', ['category' => $request->category])->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
@@ -139,6 +139,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('post.index', ['category' => $category])->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('posts.index', ['category' => $category])->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
