@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header d-flex justify-content-between">
-        <h5 class="card-title">Daftar Artikel</h5>
+        <h5 class="card-title">{{ Str::upper($title) }}</h5>
         <div class="card-actions">
             <a href="{{ route('post.create') }}">
                 <button class="btn btn-secondary create-new btn-primary" type="button" data-bs-toggle="offcanvas"

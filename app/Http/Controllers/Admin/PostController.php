@@ -19,7 +19,7 @@ class PostController extends Controller
         $posts  = Post::filter(request(['search', 'category']))->orderBy('created_at', 'DESC')->get();
         $title  = request('category');
 
-        return view('pages.admin.post.index', compact(['posts', 'title']));
+        return view('pages.admin.post.index', compact('posts', 'title'));
     }
 
     /**

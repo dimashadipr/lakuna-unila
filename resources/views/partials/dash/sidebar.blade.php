@@ -42,13 +42,13 @@
                         </a>
                     </li>
                     <li class="menu-item {{ is_route('posts.jobs', 'active') }}">
-                        <a href="layouts-without-menu.html" class="menu-link">
+                        <a href="{{ route('admin.posts') }}?category=jobs" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-lock-alt"></i>
                             <div>Lowongan Kerja</div>
                         </a>
                     </li>
                     <li class="menu-item {{ is_route('posts.agendas', 'active') }}">
-                        <a href="layouts-without-menu.html" class="menu-link">
+                        <a href="{{ route('admin.posts') }}?category=agenda" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-calendar"></i>
                             <div>Agenda</div>
                         </a>
