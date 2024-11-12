@@ -16,8 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'DESC')->get();
-        return view('pages.admin.post.index', compact('posts'));
+        $posts  = Post::filter(request(['search', 'category']))->orderBy('created_at', 'DESC')->get();
+        $title  = request('category');
+
+        return view('pages.admin.post.index', compact(['posts', 'title']));
     }
 
     /**
@@ -41,7 +43,7 @@ class PostController extends Controller
         ]);
 
         $cover = $request->file('cover');
-        $cover->storeAs('public/img', $cover->hashName());
+        $cover->storeAs('img/posts/', $cover->hashName());
 
 
         Post::create([
@@ -93,10 +95,10 @@ class PostController extends Controller
 
             //upload new image
             $cover = $request->file('cover');
-            $cover->storeAs('/storage/img/', $cover->hashName());
+            $cover->storeAs('img/posts/', $cover->hashName());
 
             //delete old image
-            Storage::delete('/storage/img/'.$post->cover);
+            Storage::delete('img/posts/'. $post->cover);
 
             //update product with new image
             $post->update([
@@ -129,6 +131,10 @@ class PostController extends Controller
     public function destroy($id): RedirectResponse
     {
         $post = Post::findOrFail($id);
+
+        if($post->cover) {
+            Storage::delete('img/posts/' . $post->cover);
+        }
 
         $post->delete();
 
