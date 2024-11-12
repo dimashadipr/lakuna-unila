@@ -6190,7 +6190,6 @@ strong {
     margin-right: 0;
 }
 a:not([href]) {
-    color: inherit;
     text-decoration: none;
 }
 a:not([href]):hover {

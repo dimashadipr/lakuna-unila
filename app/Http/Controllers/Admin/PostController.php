@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -63,24 +66,72 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(string $id): View
     {
-        //
-    }
+        //get product by ID
+        $post = Post::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Post $post)
+        //render view with product
+        return view('pages.admin.post.edit', compact('post'));
+    }
+    
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+        //validate form
+        $request->validate([
+            'cover'             => 'image|mimes:jpeg,jpg,png|max:2048',
+            'category'          => 'required',
+            'title'             => 'required',
+            'body_content'      => 'required'
+        ]);
+
+        //get product by ID
+        $post = Post::findOrFail($id);
+
+        //check if image is uploaded
+        if ($request->hasFile('cover')) {
+
+            //upload new image
+            $cover = $request->file('cover');
+            $cover->storeAs('/storage/img/', $cover->hashName());
+
+            //delete old image
+            Storage::delete('/storage/img/'.$post->cover);
+
+            //update product with new image
+            $post->update([
+                'cover'             => $cover->hashName(),
+                'category'          => $request->category,
+                'title'             => $request->title,
+                'user_id'           => 1,
+                'body_content'      => $request->body_content
+            ]);
+
+        } else {
+
+            //update product without image
+            $post->update([
+                'title'             => $request->title,
+                'category'          => $request->category,
+                'title'             => $request->title,
+                'user_id'           => 1,
+                'body_content'      => $request->body_content
+            ]);
+        }
+
+        //redirect to index
+        return redirect()->route('post.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy($id): RedirectResponse
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        return redirect()->route('post.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
