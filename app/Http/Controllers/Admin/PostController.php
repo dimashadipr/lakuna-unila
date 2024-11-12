@@ -54,7 +54,7 @@ class PostController extends Controller
             'body_content'      => $request->body_content
         ]);
         
-    return redirect()->route('post.index')->with(['success' => 'Data Berhasil Disimpan!']);
+    return redirect()->route('post.index', ['category' => $request->category])->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -122,7 +122,7 @@ class PostController extends Controller
         }
 
         //redirect to index
-        return redirect()->route('post.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('post.index', ['category' => $request->category])->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
@@ -131,6 +131,7 @@ class PostController extends Controller
     public function destroy($id): RedirectResponse
     {
         $post = Post::findOrFail($id);
+        $category = $post->category;
 
         if($post->cover) {
             Storage::delete('img/posts/' . $post->cover);
@@ -138,6 +139,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('post.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('post.index', ['category' => $category])->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
