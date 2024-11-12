@@ -2,8 +2,10 @@
 
 use Carbon\Carbon;
 
-function is_route($route, $if, $else = false)
+function is_route($route, $if, $else = false, $query = false, $queryKey = false)
 {
+    if ($query) return request()->routeIs($route) && request()->query($query) == $queryKey ? $if : ($else ?? '');
+
     return request()->routeIs($route) ? $if : ($else ?? '');
 }
 

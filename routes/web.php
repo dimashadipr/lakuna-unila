@@ -75,12 +75,12 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('isAdminOrAuthor')->group(function () {
         Route::prefix('/dashboard')->group(function () {
-            Route::get('/posts', [PostController::class, 'index'])->name('admin.posts');
+            Route::resource('/posts', PostController::class);
+            // Route::get('/posts', [PostController::class, 'index'])->name('admin.posts');
             Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('admin.posts.detail');
         });
     });
 
-    Route::resource('/post', PostController::class);
 
     Route::middleware('isAlumni')->group(function () {
         Route::prefix('/alumni')->group(function () {

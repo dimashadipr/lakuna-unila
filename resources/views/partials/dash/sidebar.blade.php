@@ -29,26 +29,28 @@
                     <div data-i18n="Manajemen Jurusan">Manajemen Jurusan</div>
                 </a>
             </li>
-            <li class="menu-item {{ is_route('posts', 'active') }}">
+            <li class="menu-item {{ is_route('posts.*', 'active') }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bxs-book-content"></i>
                     <div>Postingan</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item {{ is_route('posts.news', 'active') }}">
-                        <a href="{{ route('admin.posts') }}?category=news" class="menu-link">
+                    <li class="menu-item {{ is_route('posts.index', 'active', '', 'category', 'news') }}">
+                    {{-- <li class="menu-item {{ Request::is('posts.index') ? 'active' : '' }}"> --}}
+                        {{-- {{ Request::query('category') }} --}}
+                        <a href="{{ route('posts.index', ['category' => 'news']) }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-news"></i>
                             <div>Berita</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ is_route('posts.jobs', 'active') }}">
-                        <a href="{{ route('admin.posts') }}?category=jobs" class="menu-link">
+                    <li class="menu-item {{ is_route('posts.index', 'active', '', 'category', 'jobs') }}">
+                        <a href="{{ route('posts.index', ['category' => 'jobs']) }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-lock-alt"></i>
                             <div>Lowongan Kerja</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ is_route('posts.agendas', 'active') }}">
-                        <a href="{{ route('admin.posts') }}?category=agenda" class="menu-link">
+                    <li class="menu-item {{ is_route('posts.index', 'active', '', 'category', 'agenda') }}">
+                        <a href="{{ route('posts.index', ['category' => 'agenda']) }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-calendar"></i>
                             <div>Agenda</div>
                         </a>
