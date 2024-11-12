@@ -38,17 +38,42 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->author->name }}</td>
                 <td>{{ $post->category }}</td>
-                <td><?php echo htmlspecialchars_decode(stripslashes(Str::limit($post['body_content'], 150)));  ?></td>
+                <td><?php echo htmlspecialchars_decode(stripslashes(Str::limit($post['body_content'], 100)));  ?></td>
                 <td>
-                    <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                    
+                    <form action="{{ route('post.destroy', $post) }}" method="POST">
+                        <a class="btn btn-warning btn-sm" href="{{ route('post.edit', $post->id) }}"><i class="fa-solid fa-pen-to-square"></i> &nbsp; Ubah</a>
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-solid fa-trash"></i> &nbsp; Hapus</button>
+                        
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Confirm Deleting Data</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah Anda yakin ingin menghapus data ini?
+                                </div>
+                                <div class="modal-footer">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Hapus</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                    
                 </td>
             </tr>
             @endforeach
         </tbody>
         </table>
 </div>
-        
+
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -74,6 +99,8 @@
                 timer: 2000
             });
         @endif
+
+        
 
     </script>
 
